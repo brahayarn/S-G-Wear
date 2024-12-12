@@ -1,0 +1,50 @@
+@use '../base/variables';
+@use '../base/base';
+
+.section {
+    padding: 9px 0;
+    background-color: variables.$green;
+    display: flex;
+    align-items: center;
+    height: 145px;
+    width: 100%;
+    text-align: center;
+
+    &--about {
+        justify-content: center; // Центрування тільки для секції "About"
+    }
+}
+
+  
+.section__title {
+    font-size: 52.33px;
+    font-weight: 800;
+    line-height: 71.49px;
+    letter-spacing: 10px; 
+    color: variables.$text-color;
+
+    &--about {
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 71.49px;
+        color: #000;
+      }
+}
+  
+.section__line {
+    display: inline-flex; /* Вирівнювання стрілки і тексту в рядок */
+    align-items: center;
+    gap: 20px; 
+}
+  
+
+.section__vector {
+    display: inline-block;
+    padding: 10px; 
+    background-color: variables.$white;
+    border: 2px solid variables.$text-color;
+    border-radius: 20.44px; 
+
+}
+
+  
