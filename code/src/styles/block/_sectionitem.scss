@@ -1,8 +1,9 @@
 @use '../base/variables';
 @use '../base/base';
+@use '../base/mixin';
 
 .section {
-    padding: 9px 0;
+    padding: 9px 84px;
     background-color: variables.$green;
     display: flex;
     align-items: center;
@@ -11,8 +12,38 @@
     text-align: center;
 
     &--about {
-        justify-content: center; // Центрування тільки для секції "About"
+        justify-content: center; 
     }
+
+    @include mixin.mediaTablet {
+        padding: 21px 0; 
+        height: auto;
+        padding: 15px 0;
+        height: 75px;
+        
+    }
+
+    &.menu-open {
+        display: none; 
+    }
+
+    .mobile-text {
+        display: none;
+      }
+    
+      .desktop-text {
+        display: block; 
+      }
+    
+      @include mixin.mediaTablet {
+        .desktop-text {
+          display: none; 
+        }
+    
+        .mobile-text {
+          display: block; 
+        }
+      }
 }
 
   
@@ -20,21 +51,44 @@
     font-size: 52.33px;
     font-weight: 800;
     line-height: 71.49px;
-    letter-spacing: 10px; 
+    letter-spacing: 10%    ; 
     color: variables.$text-color;
 
     &--about {
-        font-size: 52px;
+        font-size: clamp(32px, 5vw, 52.33px);
         font-weight: 800;
-        line-height: 71.49px;
+        line-height: clamp(60px, 10vw, 71.49px);
         color: #000;
-      }
+    }
+    @include mixin.mediaTablet {
+        font-size: 24.5px;
+        font-weight: 800;
+        line-height: 33.46px;
+        letter-spacing: 10%; 
+        margin: 0 20px;
+
+        &--about {
+            font-size: 24.5px;
+            font-weight: 800;
+            line-height: 33.46px;
+            letter-spacing: 10%; 
+        }
+    }
+        @media screen and (max-width: 1230px) and (min-width: 960px) {
+            font-size: clamp(32px, 5vw, 45px);
+            line-height: clamp(30px, 10vw, 45px);
+        }
+      
 }
   
 .section__line {
-    display: inline-flex; /* Вирівнювання стрілки і тексту в рядок */
+    display: inline-flex; 
     align-items: center;
     gap: 20px; 
+
+    @include mixin.mediaTablet {
+        gap: 10px; 
+    }
 }
   
 
@@ -44,6 +98,13 @@
     background-color: variables.$white;
     border: 2px solid variables.$text-color;
     border-radius: 20.44px; 
+
+    @include mixin.mediaTablet {
+        width: 44.59px;
+        padding: 5px; 
+        border-radius: 10.22px;
+        border: 1px solid variables.$text-color;
+    }
 
 }
 

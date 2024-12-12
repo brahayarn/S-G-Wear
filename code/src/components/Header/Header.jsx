@@ -16,8 +16,8 @@ const Header = () => {
     "Woman",
     "About",
     "New collection",
-    "Cart",
-    "Likes",
+    "Your cart",
+    "Your favourites",
   ]; 
 
   const handleActive = (index) => {
@@ -70,18 +70,25 @@ const Header = () => {
             <div className="header__icons">
               <a
                 href="#!"
-                onClick={() => handleActive(4)} 
+                onClick={() => {
+                  handleActive(4); 
+                  if (isMobileMenuOpen) toggleMobileMenu(); 
+                }} 
                 className={`header__icon-link ${active === 4 ? "active" : ""}`}
               >
                 <img
                   className="header_icon"
                   src={active === 4 ? shopping_cart_active : shopping_cart}
                   alt="cart"
+
                 />
               </a>
               <a
                 href="#!"
-                onClick={() => handleActive(5)} 
+                onClick={() => {
+                  handleActive(5); 
+                  if (isMobileMenuOpen) toggleMobileMenu(); 
+                }}
                 className={`header__icon-link ${active === 5 ? "active" : ""}`}
               >
                 <img
@@ -113,6 +120,7 @@ const Header = () => {
       <SectionItem
         isAboutActive={active === 2}
         selectedTitle={menuItems[active] || "Welcome!"}
+        className={isMobileMenuOpen ? "menu-open" : ""} 
       />
     </header>
   );
