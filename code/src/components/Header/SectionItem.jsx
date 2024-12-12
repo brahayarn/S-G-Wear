@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/block/_sectionitem.scss";
 import vector from "../../assets/icons/vector.svg";
 
-const SectionItem = ({ isAboutActive }) => {
+const SectionItem = ({ selectedTitle, isAboutActive }) => {
   return (
     <section className={`section ${isAboutActive ? "section--about" : ""}`}>
       <div className="container">
@@ -18,11 +18,11 @@ const SectionItem = ({ isAboutActive }) => {
                 <br />
                 <span className="section__line">
                   <img src={vector} alt="vector" className="section__vector" />
-                  your true self!
+                  {selectedTitle}
                 </span>
               </>
             ) : (
-              "text!"
+              selectedTitle 
             )}
           </h1>
         </div>
