@@ -1,0 +1,11 @@
+@use 'variables';
+
+body {
+    font-family: variables.$font-main;
+    font-size: 16px;
+}
+
+
+.container{
+    margin: 0 80.5px;
+}
