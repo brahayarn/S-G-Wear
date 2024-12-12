@@ -3,6 +3,7 @@ import "../../styles/block/_header.scss";
 import logo from "../../assets/logo.svg";
 import like from "../../assets/icons/like.svg";
 import shopping_cart from "../../assets/icons/shopping-cart.svg";
+import SectionItem from "./SectionItem";
 
 const Header = () => {
   const [active, setActive] = useState(null); // Зберігає вибраний пункт меню
@@ -80,6 +81,8 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      <SectionItem isAboutActive={active === 2} />
     </header>
   );
 };
