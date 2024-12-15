@@ -22,8 +22,11 @@
     letter-spacing: 10%;
 }
 
-.discount__section{
+.discount__container{
+  width: 100%;
+}
 
+.discount__section{
   position: relative;
   color: var.$red;
   margin-left: 50px;

@@ -3,8 +3,8 @@ import "../../styles/block/_discount.scss";
 
 const Discount = () => {
   return (
-    <div>
-      
+    <div className="discount__container">
+
       <div className="discount__section">
         <div className="top__section">
           <p className="top__section-text">explore more</p>
