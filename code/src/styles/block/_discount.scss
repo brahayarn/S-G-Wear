@@ -1,0 +1,134 @@
+@use '../base/variables' as var;
+
+.top__section{
+  padding: 7px 24px;
+  background-color: var.$text-color;
+  color: var.$white;
+  border-radius: 140px;
+  width: 106px;
+  height: 51px;
+
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+}
+
+.top__section-text{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.12px;
+    letter-spacing: 10%;
+}
+
+.discount__section{
+
+  position: relative;
+  color: var.$red;
+  margin-left: 50px;
+  overflow: visible;
+  top: 55px;
+  left: 80px;
+
+}
+
+.button__arrow {
+  position: absolute;
+  left: -14.5px;
+  width: 37px; 
+  height: 2.5px; 
+  background: linear-gradient(to right, #94bfc6 0%, #94bfc6 40%, white 40%, white 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 5px; 
+  
+}
+
+.button__arrow::after {
+  content: "";
+  position: absolute;
+  right: -6.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 5px 0 5px 7.5px;
+  border-color: transparent transparent transparent white; 
+}
+
+
+.bottom__section{
+  padding: 67px 50px 41px 30px;
+  width: 220px;
+  height: 271px;
+  border-radius: 135px;
+  background-color: var.$white;
+  box-shadow: -2px -2px 4px 0px rgba(216, 216, 216, 1);
+  box-shadow: 2px 2px 4px 0px rgba(239, 239, 239, 1);
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  
+}
+
+.bottom__section-up {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom__section-left-up {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 38.25px;
+  letter-spacing: 10%;
+  margin: 0; 
+  position: relative;
+  left: 60px; 
+  top: 25px;
+  text-align: center;
+}
+
+.bottom__section-left-text {
+  font-family: var.$font-second;
+  font-size: 84px;
+  font-weight: 400;
+  line-height: 88.03px;
+  letter-spacing: 4%;
+  color: var.$text-color;
+  margin: 0;
+  position: relative;
+  z-index: 1; 
+}
+
+.bottom__section-left-off {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 43.71px;
+  margin: 0;
+  position: relative;
+  top: -65px; 
+  left: 70px; 
+  text-align: center;
+}
+
+.bottom__section-left-new {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21.86px;
+  text-align: center;
+}
+
+.bottom__section-right-plus{
+  font-family: var.$font-second;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 37.73px;
+  padding-left: 18px;
+}
+
