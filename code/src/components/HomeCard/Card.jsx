@@ -27,16 +27,14 @@ const Card = () => {
         <div className="card__section-bottom__left">
           <img src={man} alt="Man" />
         </div>
-        <div className="card__section-bottom__center">
           <p className="card__section-bottom__left-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <p className="card__section-bottom__left-text">
+          <p className="card__section-bottom__right-text">
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
           </p>
-        </div>
         <div className="card__section-bottom__right">
           <img src={woman} alt="Woman" />
         </div>
