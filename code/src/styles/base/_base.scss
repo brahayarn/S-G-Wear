@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'mixin';
 
 body {
     font-family: variables.$font-main;
@@ -8,4 +9,8 @@ body {
 
 .container{
     margin: 0 80.5px;
+
+    @include mixin.mediaTablet {
+        margin: 0 20px;
+    }
 }
