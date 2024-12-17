@@ -22,18 +22,20 @@
     letter-spacing: 10%;
 }
 
-.discount__container{
-  width: 100%;
+.discount__container {
+  position: relative;  
+  max-width: 100%;  
+  box-sizing: border-box;  
 }
 
 .discount__section{
+  position: absolute;
+  width: 60%;
   position: relative;
   color: var.$red;
-  margin-left: 50px;
   overflow: visible;
   top: 55px;
-  left: 80px;
-
+  left: 138px;
 }
 
 .button__arrow {
