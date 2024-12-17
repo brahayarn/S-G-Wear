@@ -9,6 +9,10 @@
   align-items: center;
   margin: 30px 0 32px 0;
 
+  @include mixin.mediaTablet {
+    margin: 18px 0 19px 0;
+}
+
 }
 
 .header_logo {
@@ -46,7 +50,8 @@
 
 .header__icons {
   display: flex;
-  gap: 14px;
+  gap: 14px; 
+
 }
 
 .header_icon {
@@ -87,6 +92,11 @@
     position: fixed;
     top: 20px;
     right: 15px;
+  }
+  .header__icons {
+    display: block;
+    gap: 20px; 
+  
   }
 }
 
