@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom"; // Import useLocation
 import "../../styles/block/_header.scss";
 import logo from "../../assets/logo.svg";
 import like from "../../assets/icons/like.svg";
@@ -8,8 +9,9 @@ import like_active from "../../assets/icons/like_active.svg";
 import shopping_cart_active from "../../assets/icons/shopping-cart_active.svg";
 
 const Header = () => {
-  const [active, setActive] = useState(null); 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
+  const [active, setActive] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation(); // Get the current location
 
   const menuItems = [
     { name: "Man", path: "/man" },
@@ -21,94 +23,94 @@ const Header = () => {
   ];
 
   const handleActive = (index) => {
-    setActive(index); 
+    setActive(index);
   };
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev); 
+    setIsMobileMenuOpen((prev) => !prev);
   };
+
+  // Sync active state with current location
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const activeIndex = menuItems.findIndex((item) => item.path === currentPath);
+    setActive(activeIndex !== -1 ? activeIndex : null); // Set active based on current path
+  }, [location, menuItems]);
 
   return (
     <header className="header">
       <div className="header__top">
         <div className="container">
           <div
-            className={`header__top-row ${
-              isMobileMenuOpen ? "header__top-row--mobile" : ""
-            }`}
+            className={`header__top-row ${isMobileMenuOpen ? "header__top-row--mobile" : ""}`}
           >
-            {/* Лого */}
-            <a href="#!">
+            {/* Logo */}
+            <Link to="/">
               <img className="header_logo" src={logo} alt="logo" />
-            </a>
+            </Link>
 
-            {/* Навігація */}
+            {/* Navigation */}
             <div className="header__nav">
               <nav className="nav">
                 <ul className="nav__list">
                   {menuItems.slice(0, 4).map((item, index) => (
                     <li key={index}>
-                      <a
-                         href={item.path}
-                        className={`nav__link ${
-                          active === index ? "active" : ""
-                        }`}
+                      <Link
+                        to={item.path}
+                        className={`nav__link ${active === index ? "active" : ""}`}
                         onClick={() => {
                           handleActive(index);
-                          if (isMobileMenuOpen) toggleMobileMenu(); 
+                          if (isMobileMenuOpen) toggleMobileMenu();
                         }}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </nav>
             </div>
 
-            {/* Іконки */}
+            {/* Icons */}
             <div className="header__icons">
-              <a
-                href="#!"
-                onClick={() => {
-                  handleActive(4); 
-                  if (isMobileMenuOpen) toggleMobileMenu(); 
-                }} 
+              <Link
+                to="/cart"
                 className={`header__icon-link ${active === 4 ? "active" : ""}`}
+                onClick={() => {
+                  handleActive(4);
+                  if (isMobileMenuOpen) toggleMobileMenu();
+                }}
               >
                 <img
                   className="header_icon"
                   src={active === 4 ? shopping_cart_active : shopping_cart}
                   alt="cart"
-
                 />
-              </a>
-              <a
-                href="#!"
-                onClick={() => {
-                  handleActive(5); 
-                  if (isMobileMenuOpen) toggleMobileMenu(); 
-                }}
+              </Link>
+              <Link
+                to="/favourites"
                 className={`header__icon-link ${active === 5 ? "active" : ""}`}
+                onClick={() => {
+                  handleActive(5);
+                  if (isMobileMenuOpen) toggleMobileMenu();
+                }}
               >
                 <img
                   className="header_icon"
                   src={active === 5 ? like_active : like}
                   alt="like"
                 />
-              </a>
+              </Link>
             </div>
 
-            {/* Кнопка для мобільного меню */}
+            {/* Mobile menu button */}
             <div className="header__nav-btn">
               <button
                 className="nav-icon-btn"
-                onClick={toggleMobileMenu} 
+                onClick={toggleMobileMenu}
               >
                 <div
-                  className={`nav-icon ${
-                    isMobileMenuOpen ? "nav-icon--active" : ""
-                  }`}
+                  className={`nav-icon ${isMobileMenuOpen ? "nav-icon--active" : ""}`}
                 ></div>
               </button>
             </div>
@@ -116,11 +118,11 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Передача активного елемента */}
+      {/* Pass selected menu item to SectionItem */}
       <SectionItem
+        selectedTitle={menuItems[active] ? menuItems[active].name : ""}
         isAboutActive={active === 2}
-        selectedTitle={menuItems[active] || "Welcome!"}
-        className={isMobileMenuOpen ? "menu-open" : ""} 
+        className={isMobileMenuOpen ? "menu-open" : ""}
       />
     </header>
   );
