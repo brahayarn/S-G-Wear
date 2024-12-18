@@ -1,13 +1,13 @@
-import card1 from "../assets/clothes/man/1.jpg";
-import card2 from "../assets/clothes/man/2.jpg";
-import card3 from "../assets/clothes/man/3.jpg";
-import card4 from "../assets/clothes/man/4.jpg";
-import card5 from "../assets/clothes/man/5.jpg";
-import card6 from "../assets/clothes/man/6.jpg";
-import card7 from "../assets/clothes/man/7.jpg";
-import card8 from "../assets/clothes/man/8.jpg";
+import card1 from "../assets/clothes/new/1.jpg";
+import card2 from "../assets/clothes/new/2.jpg";
+import card3 from "../assets/clothes/new/3.jpg";
+import card4 from "../assets/clothes/new/4.jpg";
+import card5 from "../assets/clothes/new/5.jpg";
+import card6 from "../assets/clothes/new/6.jpg";
+import card7 from "../assets/clothes/new/7.jpg";
+import card8 from "../assets/clothes/new/8.jpg";
 
-export const clothesman = [
+export const clothesnew = [
     {
         name: "Sweater 4808",
         price: 50,
@@ -49,3 +49,4 @@ export const clothesman = [
         image: card8,
     },
 ];
+
