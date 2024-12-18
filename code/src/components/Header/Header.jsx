@@ -12,13 +12,13 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
 
   const menuItems = [
-    "Man",
-    "Woman",
-    "About",
-    "New collection",
-    "Your cart",
-    "Your favourites",
-  ]; 
+    { name: "Man", path: "/man" },
+    { name: "Woman", path: "/woman" },
+    { name: "About", path: "/" },
+    { name: "New Collection", path: "/new-collection" },
+    { name: "Your Cart", path: "/cart" },
+    { name: "Your Favourites", path: "/favourites" },
+  ];
 
   const handleActive = (index) => {
     setActive(index); 
@@ -49,7 +49,7 @@ const Header = () => {
                   {menuItems.slice(0, 4).map((item, index) => (
                     <li key={index}>
                       <a
-                        href="#!"
+                         href={item.path}
                         className={`nav__link ${
                           active === index ? "active" : ""
                         }`}
@@ -58,7 +58,7 @@ const Header = () => {
                           if (isMobileMenuOpen) toggleMobileMenu(); 
                         }}
                       >
-                        {item}
+                        {item.name}
                       </a>
                     </li>
                   ))}

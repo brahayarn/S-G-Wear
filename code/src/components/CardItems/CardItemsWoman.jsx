@@ -1,5 +1,5 @@
 import React from 'react'
-import{clotheswoman} from '../../data/clothesman.js'
+import{clotheswoman} from '../../data/clotheswoman.js'
 import "../../styles/block/_card.scss";
 
 const CardItemsMan = () => {
