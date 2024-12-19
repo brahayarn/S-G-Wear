@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom"; // Import useLocation
+import { Link, useLocation } from "react-router-dom";
 import "../../styles/block/_header.scss";
 import logo from "../../assets/logo.svg";
 import like from "../../assets/icons/like.svg";
@@ -11,7 +11,7 @@ import shopping_cart_active from "../../assets/icons/shopping-cart_active.svg";
 const Header = () => {
   const [active, setActive] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation(); // Get the current location
+  const location = useLocation();
 
   const menuItems = [
     { name: "Man", path: "/man" },
@@ -30,12 +30,13 @@ const Header = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
-  // Sync active state with current location
   useEffect(() => {
     const currentPath = location.pathname;
     const activeIndex = menuItems.findIndex((item) => item.path === currentPath);
-    setActive(activeIndex !== -1 ? activeIndex : null); // Set active based on current path
+    setActive(activeIndex !== -1 ? activeIndex : null);
   }, [location, menuItems]);
+
+  const shouldShowSectionItem = !/^\/new-collection\/\d+$/.test(location.pathname);
 
   return (
     <header className="header">
@@ -44,12 +45,10 @@ const Header = () => {
           <div
             className={`header__top-row ${isMobileMenuOpen ? "header__top-row--mobile" : ""}`}
           >
-            {/* Logo */}
             <Link to="/">
               <img className="header_logo" src={logo} alt="logo" />
             </Link>
 
-            {/* Navigation */}
             <div className="header__nav">
               <nav className="nav">
                 <ul className="nav__list">
@@ -71,7 +70,6 @@ const Header = () => {
               </nav>
             </div>
 
-            {/* Icons */}
             <div className="header__icons">
               <Link
                 to="/cart"
@@ -103,7 +101,6 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Mobile menu button */}
             <div className="header__nav-btn">
               <button
                 className="nav-icon-btn"
@@ -118,12 +115,13 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Pass selected menu item to SectionItem */}
-      <SectionItem
-        selectedTitle={menuItems[active] ? menuItems[active].name : ""}
-        isAboutActive={active === 2}
-        className={isMobileMenuOpen ? "menu-open" : ""}
-      />
+      {shouldShowSectionItem && (
+        <SectionItem
+          selectedTitle={menuItems[active] ? menuItems[active].name : ""}
+          isAboutActive={active === 2}
+          className={isMobileMenuOpen ? "menu-open" : ""}
+        />
+      )}
     </header>
   );
 };
