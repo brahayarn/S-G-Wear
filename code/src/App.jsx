@@ -4,6 +4,7 @@ import  Card  from "./components/HomeCard/Card";
 import  CardItemsMan  from "./components/CardItems/CardItemsMan";
 import  CardItemsWoman  from "./components/CardItems/CardItemsWoman";
 import  NewCollection  from "./components/CardItems/NewCollection";
+import ItemInfo  from "./components/CardItems/Item/ItemInfo";
 
 
 
@@ -19,7 +20,9 @@ function App() {
           <Route path="/man" element={<CardItemsMan />} />
           <Route path="/woman" element={<CardItemsWoman />} />
           <Route path="/new-collection" element={<NewCollection />} />
-
+          <Route path="/new-collection/:id" element={<ItemInfo />} />
+          <Route path="/cart" />
+          <Route path="/favourites"/>
         </Routes>
     </Router>
     </>
