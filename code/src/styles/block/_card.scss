@@ -1,0 +1,72 @@
+@use '../base/variables' as var;
+@use '../base/mixin';
+
+.container__card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 62px 80px;
+    padding: 37px 98px 39px 100px;
+
+    @include mixin.mediaTablet{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 62px 40px;
+        padding: 33px 37px 53px 38px;
+        gap: 46px 48px;
+    }
+}
+
+.card{
+    width: 250px;
+    height: 305px;
+    border-radius: 50px;
+    box-shadow: 
+        2px 2px 4px 0px rgba(216, 216, 216, 1),
+        -2px -2px 4px  0px rgba(239, 239, 239, 1);
+
+    @include mixin.mediaTablet{
+        width: 135px;
+        height: 179px;
+        border-radius: 20px;
+        
+    }
+}
+
+.card__info{
+    padding: 0 25px 45px 25px;
+    display: flex;
+    gap: 35px;
+
+    @include mixin.mediaTablet{
+        padding: 0 12px 25px 12px;
+        gap: 12px;
+    }
+}
+
+.card__title{
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 27.32px;
+
+    @include mixin.mediaTablet{
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 16.39px;
+        
+    }
+    
+}
+
+.card__price{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 27.32px;
+    letter-spacing: 0.04em;
+
+    @include mixin.mediaTablet{
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16.39px;
+        
+    }
+    
+}
